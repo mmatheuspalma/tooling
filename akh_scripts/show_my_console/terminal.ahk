@@ -1,12 +1,12 @@
 
-I_Icon = C:\PATH_TO_THIS_REPO\akh_scripts\show_my_console\terminal.ico
+I_Icon = .\terminal.ico
 IfExist, %I_Icon%
   Menu, Tray, Icon, %I_Icon%
 ;return
 
 previous_active := ""
 
-SC029::
+!^t::
 if WinExist("ahk_exe WindowsTerminal.exe") {
     if WinActive("ahk_exe WindowsTerminal.exe") {
         WinMinimize, ahk_exe WindowsTerminal.exe
@@ -19,7 +19,7 @@ if WinExist("ahk_exe WindowsTerminal.exe") {
     }
 } else{
     previous_active := WinExist("A")
-    run, C:\PATH_TO_THIS_REPO\akh_scripts\show_my_console\terminal_shortcut
+    run, .\terminal_shortcut
 }
 return
 
